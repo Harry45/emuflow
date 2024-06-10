@@ -14,9 +14,8 @@ conda create --name emuflow python=3.9
 
 2) Install `PyTorch` based on your hardware (CPU/GPU) using the instructions found at:
 
-```
 https://pytorch.org/get-started/locally/
-```
+
 
 3) Install the packages found in the `requirements.txt` file:
 
