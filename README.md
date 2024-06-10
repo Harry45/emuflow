@@ -1,3 +1,9 @@
+<style>
+    p {
+        text-align: justify;
+    }
+</style>
+
 # `emuflow`: Normalizing Flows for Joint Cosmological Analysis
 
 ![Banana Flow](plots/banana.gif)
@@ -34,7 +40,7 @@ $$
 \left[\sigma_{8},\,\Omega_{c},\,\Omega_{b},\,h,\,n_{s}\right]
 $$
 
-Note that we need $\Omega_{c}$ and $\Omega_{b}$ without the $h^{2}$ factor. Sometimes, $\Omega_{c}h^{2}$ and $\Omega_{b}h^{2}$ are stored in public MCMC chains. A few examples of how we process the chains are shown in the notebook `processing.ipynb`. The processed samples will be stored in the folder `samples/`
+Note that we need $\Omega_{c}$ and $\Omega_{b}$ without the $h^{2}$ factor. Sometimes, $\Omega_{c}h^{2}$ and $\Omega_{b}h^{2}$ are stored in public MCMC chains. A few examples of how we process the chains are shown in the notebook `processing.ipynb`. The processed samples will be stored in the folder `samples/`.
 
 ### Step 2 - Create a config file for your experiment
 The next step is to create a config file for our experiment in the folder `conf/experiment/` and we need to specify the following
