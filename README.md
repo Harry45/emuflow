@@ -2,6 +2,31 @@
 
 ![Banana Flow](plots/banana.gif)
 
+## Create an environment
+Assuming we have `anaconda3` installed.
+
+
+1) Create an environment
+
+```
+conda create --name emuflow python=3.9
+```
+
+2) Install `PyTorch` based on your hardware (CPU/GPU) using the instructions found at:
+
+```
+https://pytorch.org/get-started/locally/
+```
+
+3) Install the packages found in the `requirements.txt` file:
+
+```
+pip install -r requirements.txt
+```
+
+## Steps towards the Joint Analysis
+We describe briefly the steps towards doing the joint analysis.
+
 ### Step 1 - Process your data
 The first step is to post-process our MCMC chains so that we retain only the following columns.
 
@@ -14,7 +39,7 @@ Note that we need $\Omega_{c}$ and $\Omega_{b}$ without the $h^{2}$ factor. Some
 ### Step 2 - Create a config file for your experiment
 The next step is to create a config file for our experiment in the folder `conf/experiment/` and we need to specify the following
 
-```
+```yaml
 fname: name of the processed file in the folder samples/
 nsamples: number of training points
 lr: 1.0e-3
@@ -81,6 +106,8 @@ python main.py nmcmc=10000 joints=[experiment_1,experiment_2] mcmc_fname=experim
 
 where `nmcmc` is the number of samples we want per walker. We are using `emcee` internally. Hence, it will generate a total of $N_{mcmc}\times 10$ samples (10 because we have $D=5$, that is, 5 dimensions, and by default at least 2D walkers are required by `emcee`).
 
+`mcmc_fname` is the name of the MCMC file for the joint posterior.
+
 The results are stored in the `output/` folder (dated and timed). After analysing the chain, if we are happy with it, it is better to then move it to the `mcmcsamples/` folder found in the parent directory.
 
 *Multi-run Sampling*
@@ -92,3 +119,30 @@ python main.py nmcmc=5000,10000 joints=[experiment_1,experiment_2] mcmc_fname=ex
 ```
 
 and the results will be stored in the `multirun/` folder.
+
+# Using the flow as a prior
+
+Because we also have a normalized density (the flow model), it is also possible to use it as prior if we want to in any cosmological analysis. To do so, we can do use the following:
+
+```python
+import numpy as np
+import torch
+from src.flow import NormFlow
+
+def load_flow(experiment: str) -> NormFlow:
+    """Load a pre-trained normalising flow.
+
+    Args:
+        experiment (str): name of the experiment (flow)
+
+    Returns:
+        NormFlow: the pre-trained normalising flow
+    """
+    fullpath = f"flows/{experiment}.pt"
+    flow = torch.load(fullpath)
+    return flow
+
+flow = load_flow('base_plikHM_TTTEEE_lowl_lowE')
+cosmology = np.array([0.805, 0.245, 0.048, 0.686, 0.976])
+log_density = flow.loglike(cosmology).item()
+```
