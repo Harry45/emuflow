@@ -8,6 +8,7 @@ mcmcsamples/
 originalsamples/
 outputs/
 multirun/
+resources/
 plots/banana/
 
 # Byte-compiled / optimized / DLL files
