@@ -1,9 +1,3 @@
-<style>
-    p {
-        text-align: justify;
-    }
-</style>
-
 # `emuflow`: Normalizing Flows for Joint Cosmological Analysis
 
 ![Banana Flow](plots/banana.gif)
@@ -34,6 +28,9 @@ pip install -r requirements.txt
 We describe briefly the steps towards doing the joint analysis.
 
 ### Step 1 - Process your data
+
+<div align="justify">
+
 The first step is to post-process our MCMC chains so that we retain only the following columns.
 
 $$
@@ -42,8 +39,12 @@ $$
 
 Note that we need $\Omega_{c}$ and $\Omega_{b}$ without the $h^{2}$ factor. Sometimes, $\Omega_{c}h^{2}$ and $\Omega_{b}h^{2}$ are stored in public MCMC chains. A few examples of how we process the chains are shown in the notebook `processing.ipynb`. The processed samples will be stored in the folder `samples/`.
 
+</div>
+
 ### Step 2 - Create a config file for your experiment
+
 The next step is to create a config file for our experiment in the folder `conf/experiment/` and we need to specify the following
+
 
 ```yaml
 fname: name of the processed file in the folder samples/
@@ -58,9 +59,14 @@ plot:
   label2: name of the experiment and flow, for example, DES Y3 (Flow)
 ```
 
+<div align="justify">
+
 Feel free to adjust the learning rate (`lr`) and the number of training points (`nsamples`) to be used. If `nsamples` is set to `null`, all the samples stored in the `samples/` folder will be used. For a 5D problem, 15000 training points should be sufficient. It can also be the case that we have fewer than 15000 samples available (for example, in the case where multinest or polychord has been used to sample the posterior). In this case, our recommendation is to set `nsamples=null`.
+</div>
 
 ### Step 3 - Train your Normalizing Flow(s)
+
+<div align="justify">
 Once the above is completed, we are now ready to train our normalizing flow, which can be achieved using:
 
 ```
@@ -102,8 +108,12 @@ multirun/2024-06-10/11-45-53/3/
 
 that is, we have 4 folders because we have 4 combinations.
 
+</div>
 
 ### Step 4 - Perform the Joint Analysis
+
+<div align="justify">
+
 The last step is to perform the joint analysis. Suppose, we have the flows, `experiement_1.pt` and `experiment_2.pt` trained and stored in the `flows/` folder. We can now run the following to sample the joint posterior:
 
 ```
@@ -116,6 +126,8 @@ where `nmcmc` is the number of samples we want per walker. We are using `emcee` 
 
 The results are stored in the `output/` folder (dated and timed). After analysing the chain, if we are happy with it, it is better to then move it to the `mcmcsamples/` folder found in the parent directory.
 
+Sampling the joint of 2 experiments takes around 13 minutes. If we choose 3 experiments, this takes around 20 minutes.
+
 *Multi-run Sampling*
 
 As above, it is also possible to launch sampling with different configurations. For example,
@@ -126,7 +138,11 @@ python main.py nmcmc=5000,10000 joints=[experiment_1,experiment_2] mcmc_fname=ex
 
 and the results will be stored in the `multirun/` folder.
 
+</div>
+
 # Using the flow as a prior
+
+<div align="justify">
 
 Because we also have a normalized density (the flow model), it is also possible to use it as prior if we want to in any cosmological analysis. To do so, we can do use the following:
 
@@ -152,3 +168,4 @@ flow = load_flow('base_plikHM_TTTEEE_lowl_lowE')
 cosmology = np.array([0.805, 0.245, 0.048, 0.686, 0.976])
 log_density = flow.loglike(cosmology).item()
 ```
+</div>
