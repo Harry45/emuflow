@@ -142,7 +142,7 @@ and the results will be stored in the `multirun/` folder.
 
 <div align="justify">
 
-Because we also have a normalized density (the flow model), it is also possible to use it as prior if we want to in any cosmological analysis. To do so, we can do use the following:
+Because we also have a normalized density (the flow model), it is also possible to use it as prior if we want to in any cosmological analysis. To do so, we can use the following:
 
 ```python
 import numpy as np
