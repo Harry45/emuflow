@@ -1,6 +1,8 @@
 # `emuflow`: Normalizing Flows for Joint Cosmological Analysis
 
-![Banana Flow](plots/banana.gif)
+<div style="text-align: center;">
+    <img src="plots/banana.gif" alt="Banana Normalizing Flow">
+</div>
 
 ## Create an environment
 Assuming we have `anaconda3` installed.
@@ -12,10 +14,7 @@ Assuming we have `anaconda3` installed.
 conda create --name emuflow python=3.9
 ```
 
-2) Install `PyTorch` based on your hardware (CPU/GPU) using the instructions found at:
-
-https://pytorch.org/get-started/locally/
-
+1) Install `PyTorch` based on your hardware (CPU/GPU) using the instructions found <a href="https://pytorch.org/get-started/locally">here</a>.
 
 3) Install the packages found in the `requirements.txt` file:
 
