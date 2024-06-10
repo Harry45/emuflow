@@ -76,7 +76,7 @@ The above example trains a normalizing flow for the public Planck chain using:
 - a learning rate of `5.0e-3`
 - 20000 training points.
 
-The outputs of the training procedure are stored in the folder `outputs/`, followd by today's date, for example, `2024-06-10/` (year, month day), followed by the time at which the training has been done, for example, `11-45-53/` (hour, minutes, seconds). The full path to the training outputs is then:
+The outputs of the training procedure are stored in the folder `outputs/`, followed by today's date, for example, `2024-06-10/` (year, month day), followed by the time at which the training has been done, for example, `11-45-53/` (hour, minutes, seconds). The full path to the training outputs is then:
 
 
 ```
