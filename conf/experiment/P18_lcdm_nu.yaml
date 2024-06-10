@@ -1,0 +1,14 @@
+fname: P18_lcdm_nu
+nsamples: 15000
+lr: 5.0e-3
+nsteps: 1000
+
+plot:
+  genplot: True
+  nfsamples: 50000
+  label1: Planck 2018
+  label2: Planck 2018 (Flow)
+
+defaults:
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog

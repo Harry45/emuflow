@@ -1,0 +1,14 @@
+fname: k1000_baryons_nocuts_nla_nside4096_lmax4500_lmin100_GNG
+nsamples: 15000
+lr: 5.0e-3
+nsteps: 3000
+
+plot:
+  genplot: True
+  nfsamples: 50000
+  label1: KiDS 1000
+  label2: KiDS 1000 (Flow)
+
+defaults:
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog

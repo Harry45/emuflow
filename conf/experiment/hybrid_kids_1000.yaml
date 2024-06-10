@@ -1,0 +1,14 @@
+fname: hybrid_kids_1000
+nsamples: null
+lr: 1.0e-3
+nsteps: 3000
+
+plot:
+  genplot: True
+  nfsamples: 50000
+  label1: KiDS 1000
+  label2: KiDS 1000 (Flow)
+
+defaults:
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog

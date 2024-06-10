@@ -1,0 +1,14 @@
+fname: FD_Garcia-Garcia2021_dzMarg_mMarg_nu
+nsamples: 15000
+lr: 5.0e-3
+nsteps: 1000
+
+plot:
+  genplot: True
+  nfsamples: 50000
+  label1: Full Dataset
+  label2: Full Dataset (Flow)
+
+defaults:
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog

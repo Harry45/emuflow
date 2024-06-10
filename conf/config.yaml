@@ -1,0 +1,10 @@
+nmcmc: 10
+eps: 1.0e-3
+mcmc_fname: hybrid_des_y3_kids_1000
+joints:
+  - hybrid_des_y3
+  - hybrid_kids_1000
+
+defaults:
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
