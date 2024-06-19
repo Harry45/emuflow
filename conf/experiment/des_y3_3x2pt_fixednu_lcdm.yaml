@@ -1,0 +1,14 @@
+fname: des_y3_3x2pt_fixednu_lcdm
+nsamples: null
+lr: 1.0e-3
+nsteps: 3000
+
+plot:
+  genplot: True
+  nfsamples: 50000
+  label1: DES Y3
+  label2: DES Y3 (Flow)
+
+defaults:
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
