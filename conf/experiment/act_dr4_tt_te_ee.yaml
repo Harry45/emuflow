@@ -1,0 +1,14 @@
+fname: act_dr4_tt_te_ee
+nsamples: 20000
+lr: 5.0e-3
+nsteps: 3000
+
+plot:
+  genplot: True
+  nfsamples: 50000
+  label1: ACT DR4 TT TE EE
+  label2: ACT DR4 TT TE EE (Flow)
+
+defaults:
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
