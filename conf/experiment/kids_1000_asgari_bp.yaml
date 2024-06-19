@@ -1,0 +1,14 @@
+fname: kids_1000_asgari_bp
+nsamples: null
+lr: 1.0e-3
+nsteps: 3000
+
+plot:
+  genplot: True
+  nfsamples: 50000
+  label1: KiDS 1000 Bandpowers
+  label2: KiDS 1000 Bandpowers (Flow)
+
+defaults:
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog

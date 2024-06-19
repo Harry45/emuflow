@@ -46,8 +46,8 @@ def triangle_cosmology(
         "smooth_scale_2D": 0.3,
         "smooth_scale_1D": 0.3,
     }
-    color1 = "#50C878"
-    color2 = "#222E50"
+    color2 = "#50C878"
+    color1 = "#222E50"
     folder = HydraConfig.get()["runtime"]["output_dir"]
 
     ndim = 5
@@ -69,15 +69,16 @@ def triangle_cosmology(
     G.settings.axes_fontsize = 15
     G.settings.lab_fontsize = 15
     G.settings.fontsize = 35
-    G.settings.legend_fontsize = 15
+    G.settings.legend_fontsize = 14
     samples_1.updateSettings({"contours": [0.68, 0.95]})
     samples_2.updateSettings({"contoburs": [0.68, 0.95]})
     G.triangle_plot(
-        [samples_1, samples_2],
+        [samples_2, samples_1],
         filled=[True, False],
-        contour_colors=[color1, color2],
+        contour_colors=[color2, color1],
         contour_lws=[2, 2],
         contour_ls=["-", "-"],
+        legend_loc=(0.45, 0.88),
     )
     plotname = f"{folder}/triangle_{fname}"
     plt.savefig(f"{plotname}.pdf", transparent=False, bbox_inches="tight")
