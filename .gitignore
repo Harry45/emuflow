@@ -4,6 +4,9 @@
 .vscode
 .DS_store
 
+quantities/
+data/
+DESPlanck/
 mcmcsamples/
 originalsamples/
 outputs/

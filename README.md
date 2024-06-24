@@ -22,6 +22,13 @@ conda create --name emuflow python=3.9
 pip install -r requirements.txt
 ```
 
+In part of the analysis, we have also use `JAX-COSMO` and we have used the following to install `jax`:
+
+```
+pip install jaxlib==0.3.25+cuda11.cudnn82 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+pip install jax[gpu]==0.3.25 -f https://storage.googleapis.com/jax-releases/jax_releases.html
+```
+
 ## Steps towards the Joint Analysis
 We describe briefly the steps towards doing the joint analysis.
 
