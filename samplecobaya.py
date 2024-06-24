@@ -33,7 +33,7 @@ print(xla_bridge.get_backend().platform)
 # jax.config.update("jax_default_device", jax.devices("cpu")[0])
 jc.power.USE_EMU = False
 PROPOSAL = 1e-3
-NSAMPLES = 1000
+NSAMPLES = 10
 MAIN_PATH = "./"  # "/mnt/zfsusers/phys2286/projects/DESEMU/"
 OUTPUT_FOLDER = MAIN_PATH + "DESPlanck/mcmc_test/"
 
@@ -296,4 +296,4 @@ info["sampler"] = {
 info["output"] = OUTPUT_FOLDER + "des_planck"
 
 # normal Python run
-# updated_info, sampler = run(info)
+updated_info, sampler = run(info)
