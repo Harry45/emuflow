@@ -65,7 +65,7 @@ def load_data(fname="cls_DESY1", kmax=0.15, lmin_wl=30, lmax_wl=2000):
     bw_gc, bw_gc_wl, bw_wl = extract_bandwindow(saccfile_cut)
     data, covariance = extract_data_covariance(saccfile_cut)
     newcov = covariance + jnp.eye(data.shape[0]) * 1e-18
-    precision = jnp.linalg.inv(newcov)
+    precision = np.linalg.inv(newcov)
     return data, precision, jax_nz_gc, jax_nz_wl, bw_gc, bw_gc_wl, bw_wl
 
 
