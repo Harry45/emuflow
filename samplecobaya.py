@@ -33,9 +33,9 @@ print(xla_bridge.get_backend().platform)
 # jax.config.update("jax_default_device", jax.devices("cpu")[0])
 jc.power.USE_EMU = False
 PROPOSAL = 1e-3
-NSAMPLES = 100
+NSAMPLES = 500000
 MAIN_PATH = "./"  # "/mnt/zfsusers/phys2286/projects/DESEMU/"
-OUTPUT_FOLDER = MAIN_PATH + "DESPlanck/mcmc_test/"
+OUTPUT_FOLDER = MAIN_PATH + "DESPlanck/mcmc_1/"
 
 if os.path.exists(OUTPUT_FOLDER) and os.path.isdir(OUTPUT_FOLDER):
     shutil.rmtree(OUTPUT_FOLDER)
