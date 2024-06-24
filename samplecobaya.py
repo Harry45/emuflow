@@ -292,4 +292,4 @@ info["sampler"] = {
 info["output"] = OUTPUT_FOLDER + "des_planck"
 
 # normal Python run
-updated_info, sampler = run(info)
+# updated_info, sampler = run(info)
