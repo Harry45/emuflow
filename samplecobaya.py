@@ -24,7 +24,7 @@ from src.utils import pickle_load
 from jax.lib import xla_bridge
 
 os.environ["XLA_PYTHON_CLIENT_PREALLOCATE"] = "false"
-os.environ["XLA_PYTHON_CLIENT_MEM_FRACTION"] = ".5"
+os.environ["XLA_PYTHON_CLIENT_MEM_FRACTION"] = ".75"
 os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
 
 print(xla_bridge.get_backend().platform)
