@@ -33,7 +33,7 @@ print(xla_bridge.get_backend().platform)
 # jax.config.update("jax_default_device", jax.devices("cpu")[0])
 jc.power.USE_EMU = False
 PROPOSAL = 1e-3
-NSAMPLES = 10
+NSAMPLES = 100
 MAIN_PATH = "./"  # "/mnt/zfsusers/phys2286/projects/DESEMU/"
 OUTPUT_FOLDER = MAIN_PATH + "DESPlanck/mcmc_test/"
 
@@ -65,7 +65,8 @@ def load_data(fname="cls_DESY1", kmax=0.15, lmin_wl=30, lmax_wl=2000):
     bw_gc, bw_gc_wl, bw_wl = extract_bandwindow(saccfile_cut)
     data, covariance = extract_data_covariance(saccfile_cut)
     newcov = covariance + jnp.eye(data.shape[0]) * 1e-18
-    precision = np.linalg.inv(newcov)
+    precision = np.linalg.inv(np.asarray(newcov))
+    precision = jnp.asarray(precision)
     return data, precision, jax_nz_gc, jax_nz_wl, bw_gc, bw_gc_wl, bw_wl
 
 
