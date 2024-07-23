@@ -1,0 +1,14 @@
+fname: BOSS_CMB_BAO
+nsamples: 20000
+lr: 1.0e-3
+nsteps: 3000
+
+plot:
+  genplot: True
+  nfsamples: 50000
+  label1: BOSS CMB+BAO
+  label2: BOSS CMB+BAO (Flow)
+
+defaults:
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
