@@ -174,3 +174,38 @@ cosmology = np.array([0.805, 0.245, 0.048, 0.686, 0.976])
 log_density = flow.loglike(cosmology).item()
 ```
 </div>
+
+# Public Likelihoods and MCMC chains
+
+<div align="justify">
+We also have a series of pre-trained normalising flows available. Some of them are listed below:
+
+### Planck 2018
+We use the `base_plikHM_TTTEEE_lowl_lowE` MCMC samples, which are available [here](https://pla.esac.esa.int/pla/aio/product-action?COSMOLOGY.FILE_ID=COM_CosmoParams_base-plikHM-TTTEEE-lowl-lowE_R3.00.zip) ([Planck collaboration et al. 2020](http://dx.doi.org/10.1051/0004-6361/201833910)).
+
+### DES Y3
+This is a $3\times 2$ point $\Lambda$CDM analysis with fixed neutrino mass ([Abbott et al. 2022](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.105.023520)). The chain is available [here](http://desdr-server.ncsa.illinois.edu/despublic/y3a2_files/chains/chain_3x2pt_fixednu_lcdm.txt).
+
+### KiDS-1000
+In this case, we have different chains due to different analyses performed. The normalising flows are built on top of the MCMC samples where the following data vectors
+- Band powers
+- Correlation functions
+- COSEBI
+
+which were used by [Asgari et al. (2021)](https://doi.org/10.1051/0004-6361/202039070) and are available [here](https://kids.strw.leidenuniv.nl/DR4/data_files/KiDS1000_cosmic_shear_data_release.tgz).
+
+
+We also have the chains from
+
+- [Heymans et al. 2021](https://doi.org/10.1051/0004-6361/202039063), which uses spectroscopic data in a joint analysis with cosmic shear. The MCMC samples are available [here](https://kids.strw.leidenuniv.nl/DR4/data_files/KiDS1000_3x2pt_fiducial_chains.tar.gz).
+- a hybrid analysis performed by [Dark Energy Survey and Kilo-Degree Survey Collaboration et al. (2023)](https://doi.org/10.21105/astro.2305.17173), which uses DES Y3 ([samples](https://desdr-server.ncsa.illinois.edu/despublic/y3a2_files/y3a2_joint-des-kids/chains/chain_desy3_hybrid_analysis.txt)) and KiDS-1000 ([samples](https://desdr-server.ncsa.illinois.edu/despublic/y3a2_files/y3a2_joint-des-kids/chains/chain_kids1000_hybrid_analysis.txt)) data.
+
+### ACT
+The samples correspond to [constraints from ACT DR4 TT+TE+EE (LCDM)](https://lambda.gsfc.nasa.gov/data/suborbital/ACT/mcmc_hills_2021/CLASS2p8_ACTPol_lite_DR4_leakfix_yp2_baseLCDM_taup_hip_R0p01.tgz).
+
+### SDSS (BAO)
+We built two normalising flow models based on:
+
+- CMB+BAO [samples](https://svn.sdss.org/public/data/eboss/DR16cosmo/tags/v1_0_1/mcmc/base/CMB_BAO/)
+- CMB+BAO+SN [samples](https://svn.sdss.org/public/data/eboss/DR16cosmo/tags/v1_0_1/mcmc/base/CMB_BAO_SN/)
+</div>
