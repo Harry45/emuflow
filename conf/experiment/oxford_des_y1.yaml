@@ -1,7 +1,7 @@
 fname: oxford_des_y1
 nsamples: 15000
-lr: 5.0e-3
-nsteps: 1000
+lr: 1.0e-3
+nsteps: 3000
 
 plot:
   genplot: True
