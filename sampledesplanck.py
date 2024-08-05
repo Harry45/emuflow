@@ -1,26 +1,20 @@
 import os
-import shutil
-from cobaya.run import run
-from cobaya.model import get_model
-import numpy as np
-import pandas as pd
 import jax
-import jax.numpy as jnp
-import sacc
-import torch
 import hydra
-from hydra.core.config_store import ConfigStore
-from omegaconf import OmegaConf
+import numpy as np
 import jax_cosmo as jc
+import jax.numpy as jnp
+from cobaya.run import run
+from omegaconf import OmegaConf
 from jax.lib import xla_bridge
+from hydra.core.config_store import ConfigStore
 
 # our script
 from cfglib import DESY1PlanckConfig
-from src.flow import NormFlow
-from src.utils import load_flow, get_logger, create_experiment_path
 from src.desplanck import get_params_info_des, load_data
 from cosmology.bandpowers import get_bandpowers_theory
 from planck.model import PlanckLitePy, plite_loglike
+from src.utils import load_flow, get_logger, create_experiment_path
 
 os.environ["XLA_PYTHON_CLIENT_PREALLOCATE"] = "false"
 os.environ["XLA_PYTHON_CLIENT_MEM_FRACTION"] = ".75"
