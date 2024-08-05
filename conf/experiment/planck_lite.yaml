@@ -1,0 +1,14 @@
+fname: planck_lite
+nsamples: 20000
+lr: 5.0e-3
+nsteps: 3000
+
+plot:
+  genplot: True
+  nfsamples: 50000
+  label1: Planck Lite
+  label2: Planck Lite (Flow)
+
+defaults:
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog

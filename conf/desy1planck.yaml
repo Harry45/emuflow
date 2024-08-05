@@ -1,0 +1,39 @@
+# We use EMCEE to sample the joint flows
+nmcmc: 10
+eps: 1.0e-3
+mcmc_fname: desy1_flow_planck_flow
+
+# camb settings
+lens_potential_accuracy: 2
+omega_k: 0.0
+tau: 0.054
+ellmax: 4000
+fid_as: 2.1e-9
+
+# DES Y1 setting
+use_emu: False
+
+# Cobaya setting
+proposal: 1e-3
+output_folder: DESPlanck/
+output_name: testing
+nsamples: 10
+
+# planck setting
+planckdata: planck/data
+spectra: TTTEEE
+spectratype: total
+use_low_ell_bins: True
+year: 2018
+
+# which flow to use for the joint
+flow_name: base_plikHM_TTTEEE_lowl_lowE
+useflow: False
+
+joints:
+  - oxford_des_y1
+  - planck_lite
+
+defaults:
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog

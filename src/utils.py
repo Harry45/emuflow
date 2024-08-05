@@ -8,16 +8,50 @@ Project: Normalising flows for joint analysis.
 import os
 import dill
 import pickle
-from typing import Any
 import logging
 import sys
+import shutil
+from typing import Any
 from datetime import datetime
 from hydra.core.hydra_config import HydraConfig
+import torch
+from src.flow import NormFlow
+from cfglib import DESY1PlanckConfig
 
 NOW = datetime.now()
 FORMATTER = logging.Formatter("[%(levelname)s] - %(asctime)s - %(name)s : %(message)s")
 CONSOLE_FORMATTER = logging.Formatter("[%(levelname)s]: %(message)s")
 DATETIME = NOW.strftime("%d-%m-%Y-%H-%M")
+
+def create_experiment_path(cfg: DESY1PlanckConfig):
+    """Creates a new directory for an experiment based on the given configuration.
+
+    This function constructs a path by joining the `output_folder` and `output_name` from the
+    provided configuration. If a directory at that path already exists, it will be removed
+    along with all its contents. Then, a new directory is created at that path.
+
+
+    Args:
+        cfg (DESY1PlanckConfig): Configuration object containing `output_folder` and `output_name`
+                                 attributes which define the path for the experiment output.
+    """
+    folder = os.path.join(cfg.output_folder, cfg.output_name)
+    if os.path.exists(folder) and os.path.isdir(folder):
+        shutil.rmtree(folder)
+    os.makedirs(folder)
+
+def load_flow(experiment: str) -> NormFlow:
+    """Load a pre-trained normalising flow.
+
+    Args:
+        experiment (str): name of the experiment (flow)
+
+    Returns:
+        NormFlow: the pre-trained normalising flow
+    """
+    fullpath = f"flows/{experiment}.pt"
+    flow = torch.load(fullpath)
+    return flow
 
 
 def pickle_save(file: list, folder: str, fname: str) -> None:
