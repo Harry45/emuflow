@@ -36,6 +36,7 @@ def create_experiment_path(cfg: DESY1PlanckConfig):
                                  attributes which define the path for the experiment output.
     """
     folder = os.path.join(cfg.output_folder, cfg.output_name)
+    print(folder)
     if os.path.exists(folder) and os.path.isdir(folder):
         shutil.rmtree(folder)
     os.makedirs(folder)
