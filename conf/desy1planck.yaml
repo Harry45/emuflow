@@ -15,7 +15,7 @@ use_emu: False
 
 # Cobaya setting
 proposal: 1e-3
-output_folder: DESPlanck/
+output_folder: /mnt/users/phys2286/projects/emuflow/DESPlanck/
 output_name: testing
 nsamples: 10
 

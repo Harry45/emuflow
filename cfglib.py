@@ -37,7 +37,8 @@ class DESY1PlanckConfig:
 
     # cobaya setting
     proposal: float = 1e-3
-    output_folder: str = "DESPlanck/testing"
+    output_folder: str = "/mnt/users/phys2286/projects/emuflow/DESPlanck/"
+    output_name: str = 'testing'
     nsamples = 10
 
     # planck setting
