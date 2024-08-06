@@ -7,7 +7,7 @@ echo $(for i in $(seq 1 50); do printf "-"; done)
 echo Sampling Planck Lite with Cobaya
 echo $(for i in $(seq 1 50); do printf "-"; done)
 date_start=$(date +%s)
-python sampleplanck.py nsamples=5 output_name=plancktest
+python sampleplanck.py nsamples=10000 output_name=planck_lite
 date_end=$(date +%s)
 seconds=$((date_end - date_start))
 minutes=$((seconds / 60))
@@ -20,7 +20,7 @@ echo $(for i in $(seq 1 50); do printf "-"; done)
 # echo Sampling Planck Lite and DES with Cobaya
 # echo $(for i in $(seq 1 100); do printf "-"; done)
 # date_start=$(date +%s)
-# python sampledesplanck.py nsamples=5 output_name=desplancktest useflow=False
+# python sampledesplanck.py nsamples=10000 output_name=des_y1_planck_lite useflow=False
 # date_end=$(date +%s)
 # seconds=$((date_end - date_start))
 # minutes=$((seconds / 60))
