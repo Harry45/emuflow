@@ -169,6 +169,7 @@ def SampleJoint(cfg: DESY1PlanckConfig):
 
     # normal Python run
     updated_info, sampler = run(info)
+    return sampler
 
 if __name__ == "__main__":
-    samples = SampleJoint()
+    sampler = SampleJoint()

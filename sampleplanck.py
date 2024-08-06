@@ -1,5 +1,4 @@
 import os
-import torch
 import hydra
 from cobaya.run import run
 from omegaconf import OmegaConf
@@ -64,7 +63,8 @@ def SamplePlanck(cfg: DESY1PlanckConfig):
     }
     # normal Python run
     updated_info, sampler = run(info)
+    return sampler
 
 
 if __name__ == "__main__":
-    samples = SamplePlanck()
+    sampler = SamplePlanck()
