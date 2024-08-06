@@ -43,4 +43,4 @@ echo $(for i in $(seq 1 50); do printf "-"; done)
 # echo Total run time : $hours Hours $minutes Minutes $seconds Seconds
 # echo $(for i in $(seq 1 100); do printf "-"; done)
 
-# addqueue -n 2x4 -s -q cmb -c tests -m 8 ./submit.sh
+# addqueue -n 1 -s -q cmb -c tests -m 8 ./submit.sh
