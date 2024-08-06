@@ -85,5 +85,5 @@ def plite_loglike(
     )
     cls = planck_theory(point, cfg)
     loglike = likelihood.loglike(cls["tt"], cls["te"], cls["ee"], min(cls["ells"]))
-    LOGGER.info(f"log-likelihood is {loglike:.3f}")
+    # LOGGER.info(f"log-likelihood of Planck-lite is {loglike:.3f}")
     return loglike
