@@ -16,9 +16,9 @@ from cosmology.bandpowers import get_bandpowers_theory
 from planck.model import PlanckLitePy, plite_loglike
 from src.utils import load_flow, get_logger, create_experiment_path
 
-# os.environ["XLA_PYTHON_CLIENT_PREALLOCATE"] = "false"
-# os.environ["XLA_PYTHON_CLIENT_MEM_FRACTION"] = ".75"
-# os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
+os.environ["XLA_PYTHON_CLIENT_PREALLOCATE"] = "false"
+os.environ["XLA_PYTHON_CLIENT_MEM_FRACTION"] = ".75"
+os.environ["XLA_PYTHON_CLIENT_ALLOCATOR"] = "platform"
 
 print(xla_bridge.get_backend().platform)
 
